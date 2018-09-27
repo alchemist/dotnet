@@ -1,0 +1,28 @@
+{
+  "name": "@alchemist-editor/dotnet",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "barrel": "barrelsby -c barrel.config.json",
+    "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts"
+  },
+  "dependencies": {
+    "@alchemist-editor/core": "^0.1.0",
+    "@treacherous/core": "^0.17.6",
+    "@treacherous/vue": "^0.3.2",
+    "@treacherous/decorators": "^0.2.3",
+    "vue": "^2.5.17",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.1.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-typescript": "^3.0.4",
+    "@vue/cli-service": "^3.0.3",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.0.3",
+    "vue-template-compiler": "^2.5.17",
+    "barrelsby": "^1.0.2"
+  }
+}
