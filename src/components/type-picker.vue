@@ -66,7 +66,7 @@
     @Component({
         mixins: [ ValidateWith(typePickerRuleset, { validateProps: true, withReactiveValidation: true }) ]
     })
-    export class TypePickerComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public type: ITypeData;

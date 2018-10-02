@@ -1,6 +1,7 @@
 {
   "name": "@alchemist-editor/dotnet",
   "version": "0.1.0",
+  "main": "dist/alchemist.dotnet.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "barrel": "barrelsby -c barrel.config.json",
@@ -14,7 +15,8 @@
     "vue": "^2.5.17",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^7.1.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.0.4",

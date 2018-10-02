@@ -60,7 +60,7 @@
         components: {TypePicker},
         mixins: [ ValidateWith(propertySectionRuleset, { validateProps: true, withReactiveValidation: true }) ]
     })
-    export class PropertiesSectionComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public properties: PropertyData[];
