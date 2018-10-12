@@ -1,4 +1,4 @@
-import {TypeData} from "@/models/types/type-data";
+import {TypeData} from "../types/type-data";
 import {required, withDisplayName} from "@treacherous/decorators";
 
 export class PropertyData {

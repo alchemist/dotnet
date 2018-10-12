@@ -1,6 +1,6 @@
 import {INode} from "@alchemist-editor/core";
-import {ITypeData} from "@/models/types/itype-data";
-import {NamespaceNodeGroup} from "@/models/projects/namespace-node-group";
+import {ITypeData} from "./itype-data";
+import {NamespaceNodeGroup} from "../projects/namespace-node-group";
 
 export class NodeTypeData implements ITypeData
 {

@@ -1,6 +1,6 @@
-import {TypeData} from "@/models/types/type-data";
-import {NamespaceNodeGroup} from "@/models/projects/namespace-node-group";
-import {NodeTypeData} from "@/models/types/node-type-data";
+import {TypeData} from "../../../models/types/type-data";
+import {NamespaceNodeGroup} from "../../../models/projects/namespace-node-group";
+import {NodeTypeData} from "../../../models/types/node-type-data";
 
 export class TypeGetters
 {
