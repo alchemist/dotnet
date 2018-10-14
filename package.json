@@ -1,6 +1,6 @@
 {
   "name": "@alchemist-editor/dotnet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/alchemist.dotnet.common.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts"
   },
   "dependencies": {
-    "@alchemist-editor/core": "^0.1.0",
+    "@alchemist-editor/core": "^0.1.4",
     "@treacherous/core": "^0.17.6",
     "@treacherous/vue": "^0.3.2",
     "@treacherous/decorators": "^0.2.3",
