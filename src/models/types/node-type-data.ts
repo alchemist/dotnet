@@ -1,4 +1,4 @@
-import {INode} from "@alchemist-editor/core";
+import {INode} from "@alchemist/core";
 import {ITypeData} from "./itype-data";
 import {NamespaceNodeGroup} from "../projects/namespace-node-group";
 
