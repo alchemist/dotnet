@@ -1,4 +1,4 @@
-import {NodeEntry, NodeRegistry, NodeGeneratorRegistry, ProjectRegistry} from "@alchemist-editor/core";
+import {NodeEntry, NodeRegistry, NodeGeneratorRegistry, ProjectRegistry} from "@alchemist/core";
 import {TypeGetters} from "./stores/modules/types/types-getters";
 
 export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGeneratorRegistry, projectRegistry: ProjectRegistry, stores: any): Promise<any> {

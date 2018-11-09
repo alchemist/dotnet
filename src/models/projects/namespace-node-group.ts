@@ -1,4 +1,4 @@
-import {INodeGroup, INode, WorkspaceConfig, FolderNodeGroup} from "@alchemist-editor/core";
+import {INodeGroup, INode, WorkspaceConfig, FolderNodeGroup} from "@alchemist/core";
 
 export class NamespaceNodeGroup extends FolderNodeGroup
 {

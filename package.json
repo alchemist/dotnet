@@ -1,15 +1,21 @@
 {
-  "name": "@alchemist-editor/dotnet",
-  "version": "0.1.2",
+  "name": "@alchemist/dotnet",
+  "version": "0.2.1",
   "main": "dist/alchemist.dotnet.common.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/alchemist/alchemist-dotnet",
+  "files": [
+    "dist/**/*",
+    "src/**/*.scss",
+    "LICENSE",
+    "readme.md"
+  ],
   "scripts": {
-    "serve": "vue-cli-service serve",
     "barrel": "barrelsby -c barrel.config.json",
     "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts"
   },
   "dependencies": {
-    "@alchemist-editor/core": "^0.1.4",
+    "@alchemist/core": "^0.2.1",
     "@treacherous/core": "^0.17.6",
     "@treacherous/vue": "^0.3.2",
     "@treacherous/decorators": "^0.2.3",
