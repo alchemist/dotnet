@@ -1,3 +1,13 @@
+obj
+bin
+packages/
+
+.idea/
+*.user
+*.suo
+*.nupkg
+.vs
+
 .DS_Store
 node_modules
 /dist
