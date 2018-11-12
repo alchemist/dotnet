@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "barrel": "barrelsby -c barrel.config.json",
-    "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts"
+    "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts",
+    "codegen": "dotnet publish ./codegen/CodeGen.sln -r win-x64 -c release"
   },
   "dependencies": {
     "@alchemist/core": "^0.2.1",
