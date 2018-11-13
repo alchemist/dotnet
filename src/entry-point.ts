@@ -1,11 +1,15 @@
-import {NodeEntry, NodeRegistry, NodeGeneratorRegistry, ProjectRegistry} from "@alchemist/core";
+import {EntryPoint, PluginContext} from "@alchemist/core";
 import {TypeGetters} from "./stores/modules/types/types-getters";
+import {CSharpCodeProcessor} from "./generators/csharp-code-processor";
 
-export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGeneratorRegistry, projectRegistry: ProjectRegistry, stores: any): Promise<any> {
+export const setup: EntryPoint = (pluginContext: PluginContext): Promise<any> => {
     const dotnetModule = {
         getters: new TypeGetters()
     };
-    stores.registerModule("dotnet", dotnetModule);
+    pluginContext.store.registerModule("dotnet", dotnetModule);
+
+    pluginContext.codeProcessorRegistry.addProcessor(new CSharpCodeProcessor());
+
     console.log("Loaded Plugin: DotNet");
     return Promise.resolve();
-}
+};
