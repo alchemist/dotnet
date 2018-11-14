@@ -26,6 +26,7 @@ const configureExternals = config => {
     config.externals["vue-property-decorator"] = "vue-property-decorator";
     config.externals["vuex"] = "vuex";
     config.externals["vuex-class"] = "vuex-class";
+    config.externals["electron"] = "electron";
     config.externals["electron-edge-js"] = "electron-edge-js";
 };
 

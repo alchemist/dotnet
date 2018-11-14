@@ -1,10 +1,12 @@
+/*
+import {remote} from "electron";
 import path from "path";
 
-const assemblyDir = `{__dirname}/codegen/CodeGen.exe`;
+const assemblyDir = `${__dirname}/codegen/CodeGen.exe`;
 eval(`process.env.EDGE_USE_CORECLR = 1;`);
 eval(`process.env.EDGE_APP_ROOT = "${assemblyDir}";`);
 
-const {func} = require("electron-edge-js");
+const {func} = remote.require("electron-edge-js");
 
 const funcP = (codeOrDescriptor: any) => {
     const handle = func(codeOrDescriptor);
@@ -28,4 +30,10 @@ export class CodegenProxy
         typeName: 'CodeGen.Formatters.GeneralCodeFormatter',
         methodName: 'FormatCode'
     });
+}
+*/
+
+export class CodegenProxy
+{
+    public static formatCode = (foo) => foo;
 }
