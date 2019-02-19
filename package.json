@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "barrel": "barrelsby -c barrel.config.json",
-    "build": "vue-cli-service build --target lib --name alchemist.dotnet src/index.ts",
+    "build": "webpack",
     "codegen-win": "dotnet publish ./codegen/CodeGen.sln -c release -r win-x64 -o ../../dist_codegen/win-x64"
   },
   "dependencies": {
@@ -20,10 +20,10 @@
     "@treacherous/core": "^0.17.7",
     "@treacherous/decorators": "^0.2.3",
     "@treacherous/vue": "^0.3.3",
-    "electron": "^3.0.9",
-    "electron-edge-js": "^8.3.8",
+    "electron": "^3.1.2",
+    "electron-edge-js": "^10.11.0",
     "tslib": "^1.9.3",
-    "vue": "^2.5.17",
+    "vue": "^2.5.22",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.2.0",
     "vuex": "^3.0.1"
@@ -34,10 +34,16 @@
     "@vue/cli-plugin-typescript": "^3.1.1",
     "@vue/cli-service": "^3.1.4",
     "barrelsby": "^1.0.2",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
+    "css-loader": "^2.1.0",
     "sass-loader": "^7.1.0",
-    "ts-loader": "^5.3.0",
-    "typescript": "^3.1.6",
-    "vue-template-compiler": "^2.5.17"
+    "ts-loader": "^5.3.3",
+    "vue-loader": "^15.6.2",
+    "vue-style-loader": "^4.1.2",
+    "typescript": "^3.2.4",
+    "vue-template-compiler": "^2.5.22",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
   }
 }
