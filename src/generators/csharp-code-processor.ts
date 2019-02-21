@@ -6,12 +6,15 @@ export class CSharpCodeProcessor implements ICodeProcessor
     public order: number = DefaultOrder;
 
     public canHandleType(generatedCode: IGeneratedCode): boolean {
-        console.log("CAN HANDLE", generatedCode.fileLocation, generatedCode.fileLocation.indexOf(".cs") >= 1);
         return generatedCode.fileLocation.indexOf(".cs") >= 1;
     }
 
+    public normalizeNewLines(generatedCode: IGeneratedCode):void {
+        generatedCode.code = generatedCode.code.replace(/(\n[\s]*){3}/g, "\n\n");
+    }
+
     public async process(generatedCode: IGeneratedCode): Promise<any> {
-        console.log("FORMATTING", generatedCode.fileLocation);
+        this.normalizeNewLines(generatedCode);
         const formattedCode = await CodegenProxy.formatCode(generatedCode.code);
         console.log("OUPUTTING", generatedCode.code, formattedCode);
         generatedCode.code = formattedCode;
