@@ -1,9 +1,9 @@
-import {ICodeProcessor, DefaultOrder, IGeneratedCode} from "@alchemist/core";
+import {ICodeProcessor, DefaultOrdering, IGeneratedCode} from "@alchemist/core";
 import {CodegenProxy} from "./codegen-proxy";
 
 export class CSharpCodeProcessor implements ICodeProcessor
 {
-    public order: number = DefaultOrder;
+    public order: number = DefaultOrdering;
 
     public canHandleType(generatedCode: IGeneratedCode): boolean {
         return generatedCode.fileLocation.indexOf(".cs") >= 1;

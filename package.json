@@ -1,7 +1,7 @@
 {
   "name": "@alchemist/dotnet",
   "version": "0.3.0",
-  "main": "dist/alchemist.dotnet.common.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/alchemist/alchemist-dotnet",
   "files": [

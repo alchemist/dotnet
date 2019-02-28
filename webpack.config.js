@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'alchemist.dotnet.common.js',
+        filename: 'index.js',
         libraryTarget: 'commonjs2'
     },
     module: {

@@ -1,15 +1,22 @@
-import {EntryPoint, PluginContext} from "@alchemist/core";
+import {IPlugin, PluginContext} from "@alchemist/core";
 import {TypeGetters} from "./stores/modules/types/types-getters";
 import {CSharpCodeProcessor} from "./generators/csharp-code-processor";
 
-export const setup: EntryPoint = (pluginContext: PluginContext): Promise<any> => {
-    const dotnetModule = {
+export class Plugin implements IPlugin
+{
+    private dotnetModule = {
         getters: new TypeGetters()
     };
-    pluginContext.store.registerModule("dotnet", dotnetModule);
 
-    pluginContext.codeProcessorRegistry.addProcessor(new CSharpCodeProcessor());
+    public name = "alchemist-dotnet";
+    public version = "0.3.0";
+    public order: 1;
 
-    console.log("Loaded Plugin: DotNet");
-    return Promise.resolve();
-};
+    public setup(pluginContext: PluginContext): Promise<void> {
+
+        pluginContext.store.registerModule("dotnet", this.dotnetModule);
+        pluginContext.codeProcessorRegistry.addProcessor(new CSharpCodeProcessor());
+        console.log("Loaded Plugin: DotNet");
+        return Promise.resolve();
+    }
+}
