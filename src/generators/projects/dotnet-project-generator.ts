@@ -1,4 +1,5 @@
 import {IProject, IProjectGenerator} from "@alchemist/core"
+import {join} from "path"
 
 const template = (project: IProject, generator: DotNetProjectGenerator, options?: any) => {
 
@@ -24,7 +25,7 @@ export abstract class DotNetProjectGenerator implements IProjectGenerator
     abstract generateCustomSections(project: IProject, options?: any): string;
 
     computeFileLocation(project: IProject): string {
-        return `${project.outputDirectory}/${project.projectName}.csproj`;
+        return join(project.outputDirectory, project.projectName, `${project.projectName}.csproj`);
     }
 
     generate(project: IProject, options?: any): Promise<string>  {
