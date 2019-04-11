@@ -15,9 +15,7 @@ export class CSharpCodeProcessor implements ICodeProcessor
 
     public async process(generatedCode: IGeneratedCode): Promise<any> {
         this.normalizeNewLines(generatedCode);
-        const formattedCode = await CodegenProxy.formatCode(generatedCode.code);
-        console.log("OUPUTTING", generatedCode.code, formattedCode);
-        generatedCode.code = formattedCode;
+        generatedCode.code = await CodegenProxy.formatCode(generatedCode.code);
         return;
     }
 }

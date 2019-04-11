@@ -2,7 +2,7 @@
     <div class="m-sm">
         <div>
             <div class="tags">
-                <span class="tag">{{title}}</span>
+                <span class="tag header-tag">{{title}}</span>
             </div>
         </div>
         <div class="field">

@@ -2,7 +2,7 @@
     <div class="property-section m-sm">
         <div>
             <div class="tags has-addons">
-                <span class="tag">{{propertiesName}}</span>
+                <span class="tag header-tag">{{propertiesName}}</span>
                 <a class="tag is-primary" @click="addProperty()">Add</a>
             </div>
         </div>
