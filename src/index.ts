@@ -1,6 +1,7 @@
 export * from "./component.exports";
 export * from "./entry-point";
 export * from "./components/itypes-to-show";
+export * from "./factories/namespace-node-group-factory";
 export * from "./generators/codegen-proxy";
 export * from "./generators/csharp-code-processor";
 export * from "./generators/edge-env-setup";
