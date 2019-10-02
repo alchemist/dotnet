@@ -24,13 +24,19 @@ When this plugin is loaded the following parts are registered:
 
 ## How do I use it?
 
-If you are developing on top of the library then add the dependency to `@alchemist/dotnet`, if you are consuming this plugin in the wild then just drop the built plugin in the applications plugins folder.
+If you are developing on top of the library then add the dependency to `@alchemist/dotnet`.
+
+For using with alchemist application do the following plugin setup:
+
+- Create a `dotnet` folder within alchemist `plugins` directory
+- Put the `index.js` file and `dist_codegen` folder into the `dotnet` directory
+- Run alchemist
+
+The plugin should be picked up, but currently this is an infrastructure plugin used by other plugins such as EcsRx one.
 
 ## Blurb
 
 This library is still very much a work in progress so the docs will be sparse and if you want to know more head on over to the discord channel.
-
-
 
 
 [npm-version-image]: https://badge.fury.io/js/%40alchemist%2Fdotnet.svg
