@@ -1,30 +1,30 @@
-import {INode, INodeGroup, IProject, IProjectSerializer, nodeGroupRegistry, nodeRegistry} from "@alchemist/core";
+import {INode, INodeGroup, IProject, IProjectSerializer, nodeGroupRegistry, nodeRegistry, projectRegistry} from "@alchemist/core";
 import {NodeTypeData} from "../models/types/node-type-data";
-import {NodeReference} from "../models/types/node-reference";
 import {NamespaceNodeGroup} from "../models/projects/namespace-node-group";
+import {ITypeData} from "..";
 
 export class DotNetProjectSerializer implements IProjectSerializer
 {
     public nodeTypeReplacer(key: string , value: any) : any
     {
         if(value instanceof NodeTypeData)
-        { return (value as NodeTypeData).toNodeReferences(); }
+        { return (value as NodeTypeData).toTypeData(); }
         return value;
     }
 
-    public getNodeTypeData(project: IProject, nodeReference: NodeReference): NodeTypeData {
+    public getNodeTypeData(project: IProject, typeData: ITypeData): NodeTypeData {
 
-        const nodeGroup = project.nodeGroups.find(x => {
-            console.log("DEB", x.displayName, nodeReference.nodeGroupName);
-            return (x.displayName == nodeReference.nodeGroupName);
-        }) as NamespaceNodeGroup;
-        const node = nodeGroup.nodes.find(x => x.id == nodeReference.nodeId);
-        return new NodeTypeData(node, nodeGroup, nodeReference.metadata)
+        const nodeId = typeData.metadata[NodeTypeData.ReferencedNodeIdMetdata];
+        const nodeGroupName = typeData.metadata[NodeTypeData.ReferencedNodeGroupMetadata];
+
+        const nodeGroup = project.nodeGroups.find(x => x.displayName == nodeGroupName);
+        const node = nodeGroup.nodes.find(x => x.id == nodeId);
+        return new NodeTypeData(node, nodeGroup as NamespaceNodeGroup, typeData.metadata);
     }
 
-    public isNodeTypeData(typeData: any): boolean {
+    public hasNodeReferenceMetadata(typeData: ITypeData): boolean {
         if(!typeData) { return false; }
-        return (typeData.hasOwnProperty("nodeId"));
+        return typeData.metadata.hasOwnProperty(NodeTypeData.ReferencedNodeIdMetdata);
     }
 
     public deserialize(projectData: string|object): IProject {
@@ -34,6 +34,8 @@ export class DotNetProjectSerializer implements IProjectSerializer
         { project = JSON.parse(projectData) as IProject; }
         else
         { project = projectData; }
+
+        project = this.processProject(project);
 
         for(let nodeGroupIndex=project.nodeGroups.length-1; nodeGroupIndex>=0; nodeGroupIndex--)
         {
@@ -54,20 +56,30 @@ export class DotNetProjectSerializer implements IProjectSerializer
         return project;
     }
 
+    protected processProject(project: IProject): IProject
+    {
+        const projectEntry = projectRegistry.getProject(project.projectType);
+        const typedProject = projectEntry.projectFactory.create(project.projectType, "", "");
+        Object.assign(typedProject, project);
+        return typedProject;
+    }
+
     protected processNode(nodeIndex: number, nodeGroup: INodeGroup, project: IProject): void
     {
         const nodeData = nodeGroup.nodes[nodeIndex];
         const nodeEntry = nodeRegistry.getNode(nodeData.type.id);
-        const placeholderNode = nodeEntry.nodeFactory.create(nodeData.type.id, null);
-        nodeGroup.nodes[nodeIndex] = Object.assign(placeholderNode, nodeData);
+        const typedNode = nodeEntry.nodeFactory.create(nodeData.type.id, null);
+        Object.assign(typedNode, nodeData);
+        nodeGroup.nodes[nodeIndex] = typedNode;
     }
 
     protected processNodeGroup(nodeGroupIndex: number, project: IProject): void
     {
         const nodeGroupData = project.nodeGroups[nodeGroupIndex];
         const nodeGroupEntry = nodeGroupRegistry.getNodeGroup(nodeGroupData.nodeGroupTypeId);
-        const placeholderInstance =  nodeGroupEntry.nodeGroupFactory.create(nodeGroupData.nodeGroupTypeId, "");
-        project.nodeGroups[nodeGroupIndex] = Object.assign(placeholderInstance, nodeGroupData);
+        const typedGroup = nodeGroupEntry.nodeGroupFactory.create(nodeGroupData.nodeGroupTypeId, "");
+        Object.assign(typedGroup, nodeGroupData);
+        project.nodeGroups[nodeGroupIndex] = typedGroup;
     }
 
     protected afterProcessed(project: IProject): void {}

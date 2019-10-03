@@ -16,7 +16,6 @@ export * from "./models/data/property-data";
 export * from "./models/projects/dotnet-project";
 export * from "./models/projects/namespace-node-group";
 export * from "./models/types/itype-data";
-export * from "./models/types/node-reference";
 export * from "./models/types/node-type-data";
 export * from "./models/types/type-data-with-implementation";
 export * from "./models/types/type-data";

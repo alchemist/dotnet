@@ -2,10 +2,12 @@ import {INode} from "@alchemist/core";
 import {ITypeData} from "./itype-data";
 import {NamespaceNodeGroup} from "../projects/namespace-node-group";
 import {TypeData} from "./type-data";
-import {NodeReference} from "./node-reference";
 
 export class NodeTypeData implements ITypeData
 {
+    public static ReferencedNodeIdMetdata = "referenced-node-id";
+    public static ReferencedNodeGroupMetadata = "referenced-node-group";
+
     public readonly referencedNode: INode;
     public readonly nodeGroup: NamespaceNodeGroup;
 
@@ -18,10 +20,8 @@ export class NodeTypeData implements ITypeData
     }
 
     public toTypeData(): TypeData {
+        this.metadata[NodeTypeData.ReferencedNodeIdMetdata] = this.referencedNode.id;
+        this.metadata[NodeTypeData.ReferencedNodeGroupMetadata] = this.nodeGroup.name;
         return new TypeData(this.name, this.namespace, this.metadata);
-    }
-
-    public toNodeReferences() {
-        return new NodeReference(this.referencedNode.id, this.nodeGroup.name);
     }
 }
