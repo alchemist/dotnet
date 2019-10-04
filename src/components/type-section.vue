@@ -7,7 +7,7 @@
         </div>
         <div class="field">
             <div class="control">
-                <type-picker class="m-sm" :type="type" :typeLists="allowedTypes" v-on:update:type="(newType) => this.$emit('update:type', newType)">
+                <type-picker class="m-sm" :type="type" :typeLists="allowedTypes" v-on:update:type="(newType) => this.$emit('update:type', newType)" @model-state-changed="relayValidation">
                     <template slot="control-trigger">
                         <button class="type-button button" aria-haspopup="true" aria-controls="dropdown-menu2">
                             <span>{{type.name || "No Type Selected" | capitalize }}</span>
@@ -41,6 +41,9 @@
 
         @Prop({ default: {}})
         public allowedTypes: ITypesToShow;
+
+        public relayValidation(isValid, modelErrors)
+        { this.$emit("model-state-changed", isValid, modelErrors); }
     }
 </script>
 

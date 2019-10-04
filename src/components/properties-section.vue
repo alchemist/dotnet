@@ -9,7 +9,7 @@
         <div v-for="(property, index) in properties">
             <div class="field has-addons m-sm">
                 <div class="control">
-                    <type-picker :type.sync="property.type" :typeLists="typesToShow">
+                    <type-picker :type.sync="property.type" :typeLists="typesToShow" @model-state-changed="relayValidation">
                         <template slot="custom-picker">
                             <div class="dropdown-item">
                                 <p>Modifiers</p>

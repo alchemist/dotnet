@@ -7,6 +7,7 @@ import {NamespaceNodeGroupFactory} from "./factories/namespace-node-group-factor
 export class Plugin implements IPlugin
 {
     private dotnetModule = {
+        namespaced: true,
         getters: new TypeGetters()
     };
 
