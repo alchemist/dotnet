@@ -21,7 +21,7 @@
     "@treacherous/core": "^0.17.7",
     "@treacherous/decorators": "^0.2.4",
     "@treacherous/vue": "^0.4.2",
-    "electron": "^3.1.2",
+    "electron": "^7.2.4",
     "electron-edge-js": "^10.11.0",
     "tslib": "^1.10.0",
     "vue": "^2.6.10",
