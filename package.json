@@ -1,6 +1,6 @@
 {
   "name": "@alchemist/dotnet",
-  "version": "0.4.11",
+  "version": "0.5.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/alchemist/alchemist-dotnet",
@@ -17,31 +17,31 @@
     "codegen": "dotnet build ./codegen/CodeGen/CodeGen.csproj -c release -o ../../dist_codegen"
   },
   "dependencies": {
-    "@alchemist/core": "^0.5.6",
+    "@alchemist/core": "^0.6.0",
     "@treacherous/core": "^0.17.7",
     "@treacherous/decorators": "^0.2.4",
     "@treacherous/vue": "^0.4.2",
-    "electron": "^3.1.2",
-    "electron-edge-js": "^10.11.0",
-    "tslib": "^1.10.0",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.1.0",
-    "vue-property-decorator": "^8.2.2",
-    "vuex": "^3.1.1"
+    "electron": "^9.1.0",
+    "electron-edge-js": "^12.14.2",
+    "tslib": "^2.0.0",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.0.0",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@types/node": "^10.12.6",
+    "@types/node": "^14.0.23",
     "@types/vue": "^2.0.0",
-    "barrelsby": "^2.1.1",
-    "node-sass": "^4.12.0",
-    "css-loader": "^2.1.1",
-    "sass-loader": "^8.0.0",
-    "ts-loader": "^6.2.0",
-    "vue-loader": "^15.7.1",
+    "barrelsby": "^2.2.0",
+    "node-sass": "^4.14.1",
+    "css-loader": "^3.6.0",
+    "sass-loader": "^9.0.2",
+    "ts-loader": "^8.0.1",
+    "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
-    "typescript": "^3.6.3",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "typescript": "^3.9.6",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
